@@ -1,0 +1,8 @@
+<ivy-module version="2.0">
+  <info organisation="IntelliFactory" module="websharper.phonejs" revision="2.5" />
+  <dependencies>
+    <dependency name="websharper" rev="latest.integration" />
+    <dependency name="websharper.knockout" rev="latest.integration" />
+    <dependency name="websharper.typescript" rev="latest.integration" />
+  </dependencies>
+</ivy-module>

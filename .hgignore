@@ -1,0 +1,4 @@
+syntax: glob
+Tests/*
+build/*
+packages/*
