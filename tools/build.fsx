@@ -88,9 +88,9 @@ let version =
 let ok =
     match Environment.GetEnvironmentVariable("NuGetPackageOutputPath") with
     | null | "" ->
-        U.nuget (sprintf "pack -out build/ -version %s WinJS.nuspec" version)
+        U.nuget (sprintf "pack -out build/ -version %s PhoneJS.nuspec" version)
     | path ->
-        U.nuget (sprintf "pack -out %s -version %s WinJS.nuspec" path version)
+        U.nuget (sprintf "pack -out %s -version %s PhoneJS.nuspec" path version)
 
 printfn "pack: %b" ok
 if not ok then exit 1 else exit 0
