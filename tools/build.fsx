@@ -37,7 +37,7 @@ let opts =
             EmbeddedResources =
                 [
                     C.EmbeddedResource.FromFile("js/globalize.js")
-                    C.EmbeddedResource.FromFile("js/dx.phone.js")
+                    C.EmbeddedResource.FromFile("js/dx.phonejs.js")
                     C.EmbeddedResource.FromFile("css/dx.common.css")
                     C.EmbeddedResource.FromFile("css/dx.generic.light.css")
                     C.EmbeddedResource.FromFile("css/dx.android.holo-dark.css")
