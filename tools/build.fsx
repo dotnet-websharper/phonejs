@@ -34,18 +34,31 @@ let opts =
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
             StrongNameKeyFile = Some snk
             Verbosity = C.Level.Verbose
+            EmbeddedResources =
+                [
+                    C.EmbeddedResource.FromFile("js/globalize.js")
+                    C.EmbeddedResource.FromFile("js/dx.phone.js")
+                    C.EmbeddedResource.FromFile("css/dx.common.css")
+                    C.EmbeddedResource.FromFile("css/dx.generic.light.css")
+                    C.EmbeddedResource.FromFile("css/dx.android.holo-dark.css")
+                    C.EmbeddedResource.FromFile("css/dx.android.holo-light.css")
+                    C.EmbeddedResource.FromFile("css/dx.ios.default.css")
+                    C.EmbeddedResource.FromFile("css/dx.tizen.white.css")
+                    C.EmbeddedResource.FromFile("css/dx.win8.black.css")
+                    C.EmbeddedResource.FromFile("css/dx.win8.white.css")
+                ]
             WebSharperResources =
                 [
-                    C.WebSharperResource.Create("Globalize", "//cdnjs.cloudflare.com/ajax/libs/globalize/0.1.1/globalize.min.js")
-                    C.WebSharperResource.Create("PhoneJS", "//cdn3.devexpress.com/jslib/13.2.9/js/dx.phonejs.js").Require<JQuery>().Require<Knockout>()
-                    C.WebSharperResource.Create("CommonStyle", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.common.css")
-                    C.WebSharperResource.CreateOptional("GenericStyle", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.generic.light.css")
-                    C.WebSharperResource.CreateOptional("AndroidHoloDark", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.android.holo-dark.css")
-                    C.WebSharperResource.CreateOptional("AndroidHoloLight", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.android.holo-light.css")
-                    C.WebSharperResource.CreateOptional("IOSDefault", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.ios.default.css")
-                    C.WebSharperResource.CreateOptional("TizenWhite", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.tizen.white.css")
-                    C.WebSharperResource.CreateOptional("Win8Black", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.win8.black.css")
-                    C.WebSharperResource.CreateOptional("Win8White", "//cdn3.devexpress.com/jslib/13.2.9/css/dx.win8.white.css")
+                    C.WebSharperResource.Create("Globalize", "globalize.js")
+                    C.WebSharperResource.Create("PhoneJS", "dx.phonejs.js").Require<JQuery>().Require<Knockout>()
+                    C.WebSharperResource.Create("CommonStyle", "dx.common.css")
+                    C.WebSharperResource.CreateOptional("GenericStyle", "dx.generic.light.css")
+                    C.WebSharperResource.CreateOptional("AndroidHoloDark", "dx.android.holo-dark.css")
+                    C.WebSharperResource.CreateOptional("AndroidHoloLight", "dx.android.holo-light.css")
+                    C.WebSharperResource.CreateOptional("IOSDefault", "dx.ios.default.css")
+                    C.WebSharperResource.CreateOptional("TizenWhite", "dx.tizen.white.css")
+                    C.WebSharperResource.CreateOptional("Win8Black", "dx.win8.black.css")
+                    C.WebSharperResource.CreateOptional("Win8White", "dx.win8.white.css")
                 ]
     }
 
