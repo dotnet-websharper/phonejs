@@ -14,7 +14,6 @@ type Knockout = IntelliFactory.WebSharper.Knockout.Resources.Knockout
 
 let dts = U.loc ["typings/dx.phonejs.d.ts"]
 let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/IntelliFactory.WebSharper.TypeScript.Lib.dll"]
-//let ko  = U.loc ["packages/WebSharper.Knockout/lib/net40/IntelliFactory.WebSharper.Knockout.dll"]
 let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
 
 let fsCore =
@@ -52,13 +51,13 @@ let opts =
                     C.WebSharperResource.Create("Globalize", "globalize.js")
                     C.WebSharperResource.Create("PhoneJS", "dx.phonejs.js").Require<JQuery>().Require<Knockout>()
                     C.WebSharperResource.Create("CommonStyle", "dx.common.css")
-                    C.WebSharperResource.CreateOptional("GenericStyle", "dx.generic.light.css")
-                    C.WebSharperResource.CreateOptional("AndroidHoloDark", "dx.android.holo-dark.css")
-                    C.WebSharperResource.CreateOptional("AndroidHoloLight", "dx.android.holo-light.css")
-                    C.WebSharperResource.CreateOptional("IOSDefault", "dx.ios.default.css")
-                    C.WebSharperResource.CreateOptional("TizenWhite", "dx.tizen.white.css")
-                    C.WebSharperResource.CreateOptional("Win8Black", "dx.win8.black.css")
-                    C.WebSharperResource.CreateOptional("Win8White", "dx.win8.white.css")
+                    C.WebSharperResource.Create("GenericStyle", "dx.generic.light.css")
+                    C.WebSharperResource.Create("AndroidHoloDark", "dx.android.holo-dark.css")
+                    C.WebSharperResource.Create("AndroidHoloLight", "dx.android.holo-light.css")
+                    C.WebSharperResource.Create("IOSDefault", "dx.ios.default.css")
+                    C.WebSharperResource.Create("TizenWhite", "dx.tizen.white.css")
+                    C.WebSharperResource.Create("Win8Black", "dx.win8.black.css")
+                    C.WebSharperResource.Create("Win8White", "dx.win8.white.css")
                 ]
     }
 
