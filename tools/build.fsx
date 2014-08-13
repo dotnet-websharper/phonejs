@@ -14,7 +14,7 @@ type Knockout = IntelliFactory.WebSharper.Knockout.Resources.Knockout
 
 let dts = U.loc ["typings/dx.phonejs.d.ts"]
 let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/IntelliFactory.WebSharper.TypeScript.Lib.dll"]
-let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
+//let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
 
 let fsCore =
     U.loc [
@@ -31,7 +31,7 @@ let opts =
             AssemblyVersion = Some (Version "2.5.0.0")
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
-            StrongNameKeyFile = Some snk
+            //StrongNameKeyFile = Some snk
             Verbosity = C.Level.Verbose
             EmbeddedResources =
                 [
@@ -48,8 +48,6 @@ let opts =
                 ]
             WebSharperResources =
                 [
-                    C.WebSharperResource.Create("Globalize", "globalize.js")
-                    C.WebSharperResource.Create("PhoneJS", "dx.phonejs.js").Require<JQuery>().Require<Knockout>()
                     C.WebSharperResource.Create("CommonStyle", "dx.common.css")
                     C.WebSharperResource.Create("GenericStyle", "dx.generic.light.css")
                     C.WebSharperResource.Create("AndroidHoloDark", "dx.android.holo-dark.css")
@@ -58,6 +56,8 @@ let opts =
                     C.WebSharperResource.Create("TizenWhite", "dx.tizen.white.css")
                     C.WebSharperResource.Create("Win8Black", "dx.win8.black.css")
                     C.WebSharperResource.Create("Win8White", "dx.win8.white.css")
+                    C.WebSharperResource.Create("Globalize", "globalize.js")
+                    C.WebSharperResource.Create("PhoneJS", "dx.phonejs.js").Require<JQuery>().Require<Knockout>()
                 ]
     }
 
