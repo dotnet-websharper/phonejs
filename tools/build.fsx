@@ -48,14 +48,6 @@ let opts =
                 ]
             WebSharperResources =
                 [
-                    C.WebSharperResource.Create("CommonStyle", "dx.common.css")
-                    C.WebSharperResource.Create("GenericStyle", "dx.generic.light.css")
-                    C.WebSharperResource.Create("AndroidHoloDark", "dx.android.holo-dark.css")
-                    C.WebSharperResource.Create("AndroidHoloLight", "dx.android.holo-light.css")
-                    C.WebSharperResource.Create("IOSDefault", "dx.ios.default.css")
-                    C.WebSharperResource.Create("TizenWhite", "dx.tizen.white.css")
-                    C.WebSharperResource.Create("Win8Black", "dx.win8.black.css")
-                    C.WebSharperResource.Create("Win8White", "dx.win8.white.css")
                     C.WebSharperResource.Create("Globalize", "globalize.js")
                     C.WebSharperResource.Create("PhoneJS", "dx.phonejs.js").Require<JQuery>().Require<Knockout>()
                     C.WebSharperResource.Create("CommonStyle", "dx.common.css")
