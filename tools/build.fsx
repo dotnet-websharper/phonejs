@@ -14,7 +14,7 @@ type Knockout = IntelliFactory.WebSharper.Knockout.Resources.Knockout
 
 let dts = U.loc ["typings/dx.phonejs.d.ts"]
 let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/IntelliFactory.WebSharper.TypeScript.Lib.dll"]
-//let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
+let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
 
 let fsCore =
     U.loc [
@@ -31,7 +31,7 @@ let opts =
             AssemblyVersion = Some (Version "2.5.0.0")
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
-            //StrongNameKeyFile = Some snk
+            StrongNameKeyFile = Some snk
             Verbosity = C.Level.Verbose
             EmbeddedResources =
                 [
