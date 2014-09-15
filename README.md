@@ -1,0 +1,3 @@
+Please note that this extension does not give you any rights to use PhoneJS in commercial products. You can use it for free in free applications. If you need to use it commercially please consult [their licensing](http://js.devexpress.com/Buy/).
+
+PhoneJS provides some default layouts which could not be included in the NuGet package. You can get them from the [https://bitbucket.org/IntelliFactory/websharper.phonejs/downloads](download page).
