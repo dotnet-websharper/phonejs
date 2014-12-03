@@ -28,7 +28,7 @@ type GlobalizeResource() =
 let opts =
     {
         C.Options.Create("IntelliFactory.WebSharper.PhoneJS", [dts]) with
-            AssemblyVersion = Some (Version "2.5.0.0")
+            AssemblyVersion = Some (Version "3.0.0.0")
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
             StrongNameKeyFile = Some snk
@@ -87,8 +87,8 @@ let (|I|_|) (x: string) =
 
 let version =
     match Environment.GetEnvironmentVariable("BUILD_NUMBER") with
-    | I k -> Version(2, 5, k, 0).ToString()
-    | _ -> Version(2, 5, 0, 0).ToString()
+    | I k -> Version(3, 0, k, 0).ToString() + "-alpha"
+    | _ -> Version(3, 0, 0, 0).ToString() + "-alpha"
 
 let ok =
     match Environment.GetEnvironmentVariable("NuGetPackageOutputPath") with
