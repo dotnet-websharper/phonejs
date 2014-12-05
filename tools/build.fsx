@@ -3,6 +3,10 @@
 #r "../packages/WebSharper.TypeScript/tools/net40/IntelliFactory.WebSharper.TypeScript.dll"
 #r "../packages/WebSharper.Knockout/lib/net40/IntelliFactory.WebSharper.Knockout.dll"
 //#r "C:/dev/websharper.typescript/build/Release/IntelliFactory.WebSharper.TypeScript.dll"
+#I "../packages/NuGet.Core/lib/net40-client"
+#r "NuGet.Core"
+#r "../packages/IntelliFactory.Core/lib/net45/IntelliFactory.Core.dll"
+#r "../packages/IntelliFactory.Build/lib/net45/IntelliFactory.Build.dll"
 #load "utility.fsx"
 
 open System
@@ -11,6 +15,13 @@ module C = IntelliFactory.WebSharper.TypeScript.Compiler
 module U = Utility
 type JQuery = IntelliFactory.WebSharper.JQuery.Resources.JQuery
 type Knockout = IntelliFactory.WebSharper.Knockout.Resources.Knockout
+
+open IntelliFactory.Build
+let version =
+    let bt = BuildTool().PackageId("WebSharper.PhoneJS", "3.0-alpha")
+    let v = PackageVersion.Full.Find(bt).ToString()
+    let s = match PackageVersion.Current.Find(bt).Suffix with Some s -> "-" + s | None -> ""
+    v + s
 
 let dts = U.loc ["typings/dx.phonejs.d.ts"]
 let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/IntelliFactory.WebSharper.TypeScript.Lib.dll"]
@@ -84,11 +95,6 @@ let (|I|_|) (x: string) =
         match Int32.TryParse(n) with
         | true, r -> Some r
         | _ -> None
-
-let version =
-    match Environment.GetEnvironmentVariable("BUILD_NUMBER") with
-    | I k -> Version(3, 0, k, 0).ToString() + "-alpha"
-    | _ -> Version(3, 0, 0, 0).ToString() + "-alpha"
 
 let ok =
     match Environment.GetEnvironmentVariable("NuGetPackageOutputPath") with
