@@ -18,7 +18,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="build\IntelliFactory.WebSharper.PhoneJS.dll" target="lib\net40" />
+    <file src="build\WebSharper.PhoneJS.dll" target="lib\net40" />
     <file src="README.md" target="" />
   </files>
 </package>

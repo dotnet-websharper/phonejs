@@ -1,8 +1,8 @@
-#r "../packages/WebSharper.TypeScript/tools/net40/IntelliFactory.WebSharper.Core.dll"
-#r "../packages/WebSharper/lib/net40/IntelliFactory.WebSharper.JQuery.dll"
-#r "../packages/WebSharper.TypeScript/tools/net40/IntelliFactory.WebSharper.TypeScript.dll"
-#r "../packages/WebSharper.Knockout/lib/net40/IntelliFactory.WebSharper.Knockout.dll"
-//#r "C:/dev/websharper.typescript/build/Release/IntelliFactory.WebSharper.TypeScript.dll"
+#r "../packages/WebSharper.TypeScript/tools/net40/WebSharper.Core.dll"
+#r "../packages/WebSharper/lib/net40/WebSharper.JQuery.dll"
+#r "../packages/WebSharper.TypeScript/tools/net40/WebSharper.TypeScript.dll"
+#r "../packages/WebSharper.Knockout/lib/net40/WebSharper.Knockout.dll"
+//#r "C:/dev/websharper.typescript/build/Release/WebSharper.TypeScript.dll"
 #I "../packages/NuGet.Core/lib/net40-client"
 #r "NuGet.Core"
 #r "../packages/IntelliFactory.Core/lib/net45/IntelliFactory.Core.dll"
@@ -11,10 +11,10 @@
 
 open System
 open System.IO
-module C = IntelliFactory.WebSharper.TypeScript.Compiler
+module C = WebSharper.TypeScript.Compiler
 module U = Utility
-type JQuery = IntelliFactory.WebSharper.JQuery.Resources.JQuery
-type Knockout = IntelliFactory.WebSharper.Knockout.Resources.Knockout
+type JQuery = WebSharper.JQuery.Resources.JQuery
+type Knockout = WebSharper.Knockout.Resources.Knockout
 
 open IntelliFactory.Build
 let version =
@@ -24,7 +24,7 @@ let version =
     v + s
 
 let dts = U.loc ["typings/dx.phonejs.d.ts"]
-let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/IntelliFactory.WebSharper.TypeScript.Lib.dll"]
+let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/WebSharper.TypeScript.Lib.dll"]
 let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
 
 let fsCore =
@@ -34,11 +34,11 @@ let fsCore =
     ]
 
 type GlobalizeResource() =
-    inherit IntelliFactory.WebSharper.Core.Resources.BaseResource("//cdnjs.cloudflare.com/ajax/libs/globalize/0.1.1/globalize.min.js")    
+    inherit WebSharper.Core.Resources.BaseResource("//cdnjs.cloudflare.com/ajax/libs/globalize/0.1.1/globalize.min.js")    
 
 let opts =
     {
-        C.Options.Create("IntelliFactory.WebSharper.PhoneJS", [dts]) with
+        C.Options.Create("WebSharper.PhoneJS", [dts]) with
             AssemblyVersion = Some (Version "3.0.0.0")
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
@@ -81,7 +81,7 @@ for msg in result.Messages do
 match result.CompiledAssembly with
 | None -> ()
 | Some asm ->
-    let out = U.loc ["build/IntelliFactory.WebSharper.PhoneJS.dll"]
+    let out = U.loc ["build/WebSharper.PhoneJS.dll"]
     let dir = DirectoryInfo(Path.GetDirectoryName(out))
     if not dir.Exists then
         dir.Create()
