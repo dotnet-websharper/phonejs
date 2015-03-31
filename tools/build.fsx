@@ -18,7 +18,7 @@ type Knockout = WebSharper.Knockout.Resources.Knockout
 
 open IntelliFactory.Build
 let version =
-    let bt = BuildTool().PackageId("WebSharper.PhoneJS", "3.0-alpha")
+    let bt = BuildTool().PackageId("WebSharper.PhoneJS", "3.0")
     let v = PackageVersion.Full.Find(bt).ToString()
     let s = match PackageVersion.Current.Find(bt).Suffix with Some s -> "-" + s | None -> ""
     v + s
