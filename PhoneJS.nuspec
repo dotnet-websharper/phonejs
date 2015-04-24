@@ -3,7 +3,7 @@
   <metadata>
     <id>WebSharper.PhoneJS</id>
     <title>WebSharper.PhoneJS 13.2.9</title>
-    <version>3.0.0-alpha</version>
+    <version>3.0.0</version>
     <authors>IntelliFactory</authors>
     <description>WebSharper bindings for PhoneJS (13.2.9)</description>
     <language>en-US</language>
@@ -12,7 +12,7 @@
     <tags>f# fsharp mobile phonegap mvvm framework ui</tags>
     <dependencies>
       <group>
-        <dependency id="WebSharper.TypeScript.Lib" version="3.0.0-alpha" />
+        <dependency id="WebSharper.TypeScript.Lib" version="3.0.0" />
         <dependency id="WebSharper.Knockout" version=""/>
       </group>
     </dependencies>
