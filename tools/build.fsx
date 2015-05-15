@@ -89,19 +89,19 @@ match result.CompiledAssembly with
     printfn "Writing %s" out
     File.WriteAllBytes(out, asm.GetBytes())
 
-bt.Solution [
-    bt.NuGet.CreatePackage()
-        .Configure(fun c ->
-            { c with
-                Authors = ["IntelliFactory"]
-                Title = Some "WebSharper.PhoneJS 13.2.9"
-                LicenseUrl = Some "http://websharper.com/licensing"
-                ProjectUrl = Some "http://websharper.com"
-                Description = "WebSharper bindings for PhoneJS (13.2.9)"
-                RequiresLicenseAcceptance = true })
-        .AddDependency("WebSharper.TypeScript.Lib")
-        .AddDependency("WebSharper.Knockout")
-        .AddFile("build/WebSharper.PhoneJS.dll", "lib/net40/WebSharper.PhoneJS.dll")
-        .AddFile("README.md", "docs/README.md")
-]
-|> bt.Dispatch
+    bt.Solution [
+        bt.NuGet.CreatePackage()
+            .Configure(fun c ->
+                { c with
+                    Authors = ["IntelliFactory"]
+                    Title = Some "WebSharper.PhoneJS 13.2.9"
+                    LicenseUrl = Some "http://websharper.com/licensing"
+                    ProjectUrl = Some "http://websharper.com"
+                    Description = "WebSharper bindings for PhoneJS (13.2.9)"
+                    RequiresLicenseAcceptance = true })
+            .AddDependency("WebSharper.TypeScript.Lib")
+            .AddDependency("WebSharper.Knockout")
+            .AddFile("build/WebSharper.PhoneJS.dll", "lib/net40/WebSharper.PhoneJS.dll")
+            .AddFile("README.md", "docs/README.md")
+    ]
+    |> bt.Dispatch
