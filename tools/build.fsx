@@ -17,11 +17,12 @@ type JQuery = WebSharper.JQuery.Resources.JQuery
 type Knockout = WebSharper.Knockout.Resources.Knockout
 
 open IntelliFactory.Build
-let version =
-    let bt = BuildTool().PackageId("WebSharper.PhoneJS", "3.0")
-    let v = PackageVersion.Full.Find(bt).ToString()
-    let s = match PackageVersion.Current.Find(bt).Suffix with Some s -> "-" + s | None -> ""
-    v + s
+
+let bt = BuildTool().PackageId("WebSharper.PhoneJS").VersionFrom("WebSharper")
+
+let asmVersion =
+    let v = PackageVersion.Full.Find(bt)
+    sprintf "%i.%i.0.0" v.Major v.Minor
 
 let dts = U.loc ["typings/dx.phonejs.d.ts"]
 let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/WebSharper.TypeScript.Lib.dll"]
@@ -39,7 +40,7 @@ type GlobalizeResource() =
 let opts =
     {
         C.Options.Create("WebSharper.PhoneJS", [dts]) with
-            AssemblyVersion = Some (Version "3.0.0.0")
+            AssemblyVersion = Some (Version asmVersion)
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
             StrongNameKeyFile = Some snk
@@ -88,20 +89,19 @@ match result.CompiledAssembly with
     printfn "Writing %s" out
     File.WriteAllBytes(out, asm.GetBytes())
 
-let (|I|_|) (x: string) =
-    match x with
-    | null | "" -> None
-    | n ->
-        match Int32.TryParse(n) with
-        | true, r -> Some r
-        | _ -> None
-
-let ok =
-    match Environment.GetEnvironmentVariable("NuGetPackageOutputPath") with
-    | null | "" ->
-        U.nuget (sprintf "pack -out build/ -version %s PhoneJS.nuspec" version)
-    | path ->
-        U.nuget (sprintf "pack -out %s -version %s PhoneJS.nuspec" path version)
-
-printfn "pack: %b" ok
-if not ok then exit 1 else exit 0
+bt.Solution [
+    bt.NuGet.CreatePackage()
+        .Configure(fun c ->
+            { c with
+                Authors = ["IntelliFactory"]
+                Title = Some "WebSharper.PhoneJS 13.2.9"
+                LicenseUrl = Some "http://websharper.com/licensing"
+                ProjectUrl = Some "http://websharper.com"
+                Description = "WebSharper bindings for PhoneJS (13.2.9)"
+                RequiresLicenseAcceptance = true })
+        .AddDependency("WebSharper.TypeScript.Lib")
+        .AddDependency("WebSharper.Knockout")
+        .AddFile("build/WebSharper.PhoneJS.dll", "lib/net40/WebSharper.PhoneJS.dll")
+        .AddFile("README.md", "docs/README.md")
+]
+|> bt.Dispatch
