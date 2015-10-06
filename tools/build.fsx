@@ -18,7 +18,10 @@ type Knockout = WebSharper.Knockout.Resources.Knockout
 
 open IntelliFactory.Build
 
-let bt = BuildTool().PackageId("WebSharper.PhoneJS").VersionFrom("WebSharper")
+let bt =
+    BuildTool().PackageId("WebSharper.PhoneJS").VersionFrom("WebSharper")
+        .WithFramework(fun fw -> fw.Net40)
+        .WithFSharpVersion(FSharpVersion.FSharp30)
 
 let asmVersion =
     let v = PackageVersion.Full.Find(bt)
