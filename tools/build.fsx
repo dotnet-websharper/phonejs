@@ -82,6 +82,9 @@ let result =
 for msg in result.Messages do
     printfn "%O" msg
 
+let knockoutVersion = bt.NuGetResolver.FindLatestVersion("WebSharper.Knockout").Value.Version.ToString()
+let tlibVerson = bt.NuGetResolver.FindLatestVersion("WebSharper.TypeScript.Lib").Value.Version.ToString()
+
 match result.CompiledAssembly with
 | None -> ()
 | Some asm ->
@@ -102,8 +105,8 @@ match result.CompiledAssembly with
                     ProjectUrl = Some "http://websharper.com"
                     Description = "WebSharper bindings for PhoneJS (13.2.9)"
                     RequiresLicenseAcceptance = true })
-            .AddDependency("WebSharper.TypeScript.Lib")
-            .AddDependency("WebSharper.Knockout")
+            .AddDependency("WebSharper.TypeScript.Lib", tlibVerson, forceFoundVersion = true)
+            .AddDependency("WebSharper.Knockout", knockoutVersion, forceFoundVersion = true)
             .AddFile("build/WebSharper.PhoneJS.dll", "lib/net40/WebSharper.PhoneJS.dll")
             .AddFile("README.md", "docs/README.md")
     ]
