@@ -88,7 +88,7 @@ let tlibVerson = bt.NuGetResolver.FindLatestVersion("Zafir.TypeScript.Lib", true
 match result.CompiledAssembly with
 | None -> ()
 | Some asm ->
-    let out = U.loc ["build/Zafir.PhoneJS.dll"]
+    let out = U.loc ["build/WebSharper.PhoneJS.dll"]
     let dir = DirectoryInfo(Path.GetDirectoryName(out))
     if not dir.Exists then
         dir.Create()
@@ -107,7 +107,7 @@ match result.CompiledAssembly with
                     RequiresLicenseAcceptance = true })
             .AddDependency("Zafir.TypeScript.Lib", tlibVerson, forceFoundVersion = true)
             .AddDependency("Zafir.Knockout", knockoutVersion, forceFoundVersion = true)
-            .AddFile("build/Zafir.PhoneJS.dll", "lib/net40/Zafir.PhoneJS.dll")
+            .AddFile("build/WebSharper.PhoneJS.dll", "lib/net40/WebSharper.PhoneJS.dll")
             .AddFile("README.md", "docs/README.md")
     ]
     |> bt.Dispatch
