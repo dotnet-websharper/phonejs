@@ -42,7 +42,7 @@ type GlobalizeResource() =
 
 let opts =
     {
-        C.Options.Create("Zafir.PhoneJS", [dts]) with
+        C.Options.Create("WebSharper.PhoneJS", [dts]) with
             AssemblyVersion = Some (Version asmVersion)
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
