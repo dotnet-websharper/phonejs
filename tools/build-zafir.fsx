@@ -1,7 +1,7 @@
 #r "../packages/Zafir.TypeScript/tools/net40/WebSharper.Core.dll"
 #r "../packages/Zafir/lib/net40/WebSharper.JQuery.dll"
 #r "../packages/Zafir.TypeScript/tools/net40/WebSharper.TypeScript.dll"
-#r "../packages/Zafir.Knockout/lib/net40/Zafir.Knockout.dll"
+#r "../packages/Zafir.Knockout/lib/net40/WebSharper.Knockout.dll"
 //#r "C:/dev/websharper.typescript/build/Release/WebSharper.TypeScript.dll"
 #I "../packages/NuGet.Core/lib/net40-client"
 #r "NuGet.Core"
@@ -14,7 +14,7 @@ open System.IO
 module C = WebSharper.TypeScript.Compiler
 module U = Utility
 type JQuery = WebSharper.JQuery.Resources.JQuery
-type Knockout = Zafir.Knockout.Resources.Knockout
+type Knockout = WebSharper.Knockout.Resources.Knockout
 
 open IntelliFactory.Build
 
