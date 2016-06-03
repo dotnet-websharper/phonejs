@@ -82,8 +82,8 @@ let result =
 for msg in result.Messages do
     printfn "%O" msg
 
-let knockoutVersion = bt.NuGetResolver.FindLatestVersion("WebSharper.Knockout").Value.Version.ToString()
-let tlibVerson = bt.NuGetResolver.FindLatestVersion("WebSharper.TypeScript.Lib").Value.Version.ToString()
+let knockoutVersion = bt.NuGetResolver.FindLatestVersion("WebSharper.Knockout").Value.ToString()
+let tlibVerson = bt.NuGetResolver.FindLatestVersion("WebSharper.TypeScript.Lib").Value.ToString()
 
 match result.CompiledAssembly with
 | None -> ()
