@@ -76,10 +76,10 @@ declare module DevExpress.data {
         filter(field: string, value: any): IQuery;
         filter(criteria: any[]): IQuery;
         select(field: string): IQuery;
-        select(field: string[]): IQuery;
+        //select(field: string[]): IQuery;
         select(...field: string[]): IQuery;
         select(field: Getter): IQuery;
-        select(field: Getter[]): IQuery;
+        //select(field: Getter[]): IQuery;
         select(...field: Getter[]): IQuery;
         groupBy(field: string[]): IQuery;
         groupBy(field: Getter[]): IQuery;
