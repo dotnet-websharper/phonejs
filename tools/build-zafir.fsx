@@ -108,7 +108,7 @@ match result.CompiledAssembly with
                     ProjectUrl = Some "http://websharper.com"
                     Description = "Zafir bindings for PhoneJS (13.2.9)"
                     RequiresLicenseAcceptance = true })
-            .AddDependency("Zafir.TypeScript.Lib", tlibVerson, forceFoundVersion = true)
+            .AddDependency("Zafir.TypeScript.Lib", tlibVersion, forceFoundVersion = true)
             .AddDependency("Zafir.Knockout", knockoutVersion, forceFoundVersion = true)
             .AddFile("build/WebSharper.PhoneJS.dll", "lib/net40/WebSharper.PhoneJS.dll")
             .AddFile("README.md", "docs/README.md")
