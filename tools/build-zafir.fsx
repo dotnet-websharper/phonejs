@@ -85,8 +85,8 @@ let result =
 for msg in result.Messages do
     printfn "%O" msg
 
-let knockoutVersion = bt.NuGetResolver.FindLatestVersion("Zafir.Knockout", true).Value.ToString()
-let tlibVerson = bt.NuGetResolver.FindLatestVersion("Zafir.TypeScript.Lib", true).Value.ToString()
+let knockoutVersion = File.ReadAllText(__SOURCE_DIRECTORY__ + "/knockout-version.txt")
+let tlibVerson = File.ReadAllText(__SOURCE_DIRECTORY__ + "/tlib-version.txt")
 
 match result.CompiledAssembly with
 | None -> ()
