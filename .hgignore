@@ -2,3 +2,6 @@ syntax: glob
 Tests/*
 build/*
 packages/*
+tools/*.exe
+tools/*.dll
+version.txt
