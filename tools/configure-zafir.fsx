@@ -24,7 +24,7 @@ File.WriteAllText(__SOURCE_DIRECTORY__ + "/version.txt", version)
 let knockoutVersion = bt.NuGetResolver.FindLatestVersion("Zafir.Knockout", true).Value.ToString()
 File.WriteAllText(__SOURCE_DIRECTORY__ + "/knockout-version.txt", knockoutVersion)
 
-let tlibVerson = bt.NuGetResolver.FindLatestVersion("Zafir.TypeScript.Lib", true).Value.ToString()
+let tlibVersion = bt.NuGetResolver.FindLatestVersion("Zafir.TypeScript.Lib", true).Value.ToString()
 File.WriteAllText(__SOURCE_DIRECTORY__ + "/tlib-version.txt", tlibVersion)
 
 printfn "configure: %b" ok
