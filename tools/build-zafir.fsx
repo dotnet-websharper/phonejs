@@ -33,12 +33,7 @@ let asmVersion =
 let dts = U.loc ["typings/dx.phonejs.d.ts"]
 let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/WebSharper.TypeScript.Lib.dll"]
 let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
-
-let fsCore =
-    U.loc [
-        Environment.GetEnvironmentVariable("ProgramFiles(x86)")
-        "Reference Assemblies/Microsoft/FSharp/.NETFramework/v4.0/4.3.0.0/FSharp.Core.dll"
-    ]
+let fsCore = U.loc ["packages/FSharp.Core/lib/net45/FSharp.Core.dll"]
 
 type GlobalizeResource() =
     inherit WebSharper.Core.Resources.BaseResource("//cdnjs.cloudflare.com/ajax/libs/globalize/0.1.1/globalize.min.js")    
